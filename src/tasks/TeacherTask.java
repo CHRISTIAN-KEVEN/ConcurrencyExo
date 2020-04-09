@@ -23,9 +23,10 @@ public class TeacherTask implements Runnable{
     
     @Override
     public void run() {
-        
-        int rand = (int) (NUMBER_OF_CLASSES*Math.random());
+       
+      // int rand = (int) (NUMBER_OF_CLASSES*Math.random());
         while(true){
+            
             int i=0;
             while(i < NUMBER_OF_CLASSES){            
                 enter(classrooms[i]);

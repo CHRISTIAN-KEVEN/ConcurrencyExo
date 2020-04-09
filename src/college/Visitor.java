@@ -11,5 +11,30 @@ package college;
  * @author CHRISTIAN
  */
 public class Visitor extends Person{
+
+    private String name;
+    private boolean inClass;
+    
+    Visitor(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isInClass() {
+        return inClass;
+    }
+
+    public void setInClass(boolean inClass) {
+        this.inClass = inClass;
+    }
+    
+    
     
 }

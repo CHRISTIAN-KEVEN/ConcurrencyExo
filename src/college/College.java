@@ -18,10 +18,12 @@ public class College {
     private final int NUMBER_OF_CLASSROOMS = 4;
     private final int NUMBER_OF_TEACHERS = 6;
     private final int NUMBER_OF_STUDENTS = 170;
+    private final int NUMBER_OF_VISITORS = (int)(21*Math.random());  // We want a random number of visitors with the max being 20
     
        Classroom[] classrooms = new Classroom[NUMBER_OF_CLASSROOMS];
        Teacher[] teachers = new Teacher[NUMBER_OF_TEACHERS];
        Student[] students = new Student[NUMBER_OF_STUDENTS];
+       Visitor[] visitors = new Visitor[NUMBER_OF_VISITORS];
        
        public College(){
            
@@ -49,18 +51,31 @@ public class College {
            
            int i=0;
            while(i < NUMBER_OF_STUDENTS){
-               students[i] = new Student(++i+"");
+               students[i] = new Student("Student " + ++i);
                
                // Adding the students directly to a classroom
-               if(i<60) 
-                   classrooms[0].getStudents().add(students[i]);
-               else if(i>=60 && i<120)
-                   classrooms[1].getStudents().add(students[i]);
-               else if(i>=120 && i<140)
-                   classrooms[2].getStudents().add(students[i]);
-               else
-                   classrooms[3].getStudents().add(students[i]);
+               if(i<60) {
+                   classrooms[0].getStudents()[i] = students[i];
+                   students[i].setClassroom(classrooms[0]);
+               }
+               else if(i>=60 && i<120){
+                   classrooms[1].getStudents()[i-60] = students[i];
+                   students[i].setClassroom(classrooms[1]);
+               }
+               else if(i>=120 && i<140){
+                   classrooms[2].getStudents()[i-120] = students[i];
+                   students[i].setClassroom(classrooms[2]);
+               }
+               else{
+                   classrooms[3].getStudents()[i-140] =(students[i]);
+                   students[i].setClassroom(classrooms[3]);
+               }
                
+           }
+           
+           for(int j=0; j<NUMBER_OF_VISITORS; j++){
+               
+               visitors[j] = new Visitor("Visitor " + ++j);
            }
            
     }
