@@ -10,6 +10,6 @@ package college;
  *
  * @author CHRISTIAN
  */
-class Person extends Thread{
+class Person {
     
 }
